@@ -7,23 +7,26 @@
 <body>
 <div class="detail">
     <div class="vizitka">
-        <div class="jmeno">Dita (Přikrylová) Formánková</div>
-        <div class="firma">Czechitas z. s.</div>
+        <div class="jmeno">${businessCard.name}</div>
+        <div class="firma">${businessCard.company}</div>
         <div class="udaje">
             <div class="adresa">
-                <div>Václavské náměstí 837/11</div>
-                <div><span>11000</span> Praha 1</div>
+                <div>${businessCard.street}</div>
+                <div>${businessCard.cityZipCode}</div>
             </div>
             <div class="kontakty">
-                <div><i class="bi bi-at"></i> dita@example.com</div>
-                <div><i class="bi bi-phone"></i> +420 800123456</div>
-                <div><i class="bi bi-globe"></i> www.czechitas.cz</div>
+                [#if businessCard.email??]
+                    <div><i class="las la-at"></i> <span>${businessCard.email}</span></div>
+                [/#if]
+                [#if businessCard.telephone??]
+                    <div><i class="las la-phone-alt"></i> <span>${businessCard.telephone}</span></div>
+                [/#if]
+                <div><i class="las la-globe"></i> <span>${businessCard.webAddress}</span></div>
             </div>
         </div>
     </div>
-
     <div class="mapa">
-        <iframe style="border:none" src="https://frame.mapy.cz/?q=${"Václavské náměstí 837/11, Praha"?url("UTF-8")}" width="100%" height="100%" frameborder="0"></iframe>
+        <iframe style="border:none" src="https://frame.mapy.cz/?q=${businessCard.address?url("UTF-8")}" width="100%" height="100%" frameborder="0"></iframe>
     </div>
 
     <nav>

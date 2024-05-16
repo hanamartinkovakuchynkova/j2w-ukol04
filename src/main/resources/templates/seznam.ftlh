@@ -6,24 +6,32 @@
 </head>
 <body>
 <div class="seznam">
-    [#list seznam as vizitka]
-        <a href="/detail/${vizitka?index}">
-            <div class="vizitka">
-                <div class="jmeno">Dita (Přikrylová) Formánková</div>
-                <div class="firma">Czechitas z. s.</div>
-                <div class="udaje">
-                    <div class="adresa">
-                        <div>Václavské náměstí 837/11</div>
-                        <div><span>11000</span> Praha 1</div>
-                    </div>
-                    <div class="kontakty">
-                        <div><i class="bi bi-at"></i> dita@example.com</div>
-                        <div><i class="bi bi-phone"></i> +420 800123456</div>
-                        <div><i class="bi bi-globe"></i> www.czechitas.cz</div>
+    [#list businessCardList as businessCard]
+        <div class="seznam">
+            <a href="/detail/${businessCard_index}">
+                <div class="vizitka">
+                    <div class="jmeno">${businessCard.name}</div>
+                    <div class="firma">${businessCard.company}</div>
+                    <div class="udaje">
+                        <div class="adresa">
+                            <div>${businessCard.street}</div>
+                            <div>${businessCard.cityZipCode}</div>
+                        </div>
+                        <div class="kontakty">
+                            [#if businessCard.email??]
+                                <div><i class="las la-at"></i> <span>${businessCard.email}</span></div>
+                            [/#if]
+                            [#if businessCard.telephone??]
+                                <div><i class="las la-phone-alt"></i> <span>${businessCard.telephone}</span></div>
+                            [/#if]
+                            [#if businessCard.webAddress??]
+                                <div><i class="las la-globe"></i> <span>${businessCard.webAddress}</span></div>
+                            [/#if]
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     [/#list]
 
     <a href="/nova">
