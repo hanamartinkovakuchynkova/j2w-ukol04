@@ -1,50 +1,23 @@
-package cz.czechitas.java2webapps.ukol3.entity;
+package cz.czechitas.java2webapps.ukol3.controller;
 
-public class BusinessCard {
-    private static int nextId = 0;
+import jakarta.validation.constraints.*;
 
-    private int id;
+public class BusinessCardForm {
+    @NotBlank
     private String name;
+    @NotBlank
     private String company;
+    @NotBlank
     private String street;
+    @NotBlank
     private String cityZipCode;
+    @Email
+    @NotBlank
     private String email;
+    @NotBlank
     private String telephone;
+    @NotBlank
     private String webAddress;
-
-    public BusinessCard() {
-    }
-
-    public BusinessCard(String name, String company, String street, String cityZipCode, String email, String telephone, String webAddress) {
-        this.id = nextId++;
-        this.name = name;
-        this.company = company;
-        this.street = street;
-        this.cityZipCode = cityZipCode;
-        this.email = email;
-        this.telephone = telephone;
-        this.webAddress = webAddress;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static int getNextId() {
-        return nextId;
-    }
-
-    public static void setNextId(int nextId) {
-        BusinessCard.nextId = nextId;
-    }
-
-    public String getAddress() {
-        return street + ", " + cityZipCode;
-    }
 
     public String getName() {
         return name;

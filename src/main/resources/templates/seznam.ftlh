@@ -8,7 +8,7 @@
 <div class="seznam">
     [#list businessCardList as businessCard]
         <div class="seznam">
-            <a href="/detail/${businessCard_index}">
+            <a href="/detail/${businessCard.id}">
                 <div class="vizitka">
                     <div class="jmeno">${businessCard.name}</div>
                     <div class="firma">${businessCard.company}</div>

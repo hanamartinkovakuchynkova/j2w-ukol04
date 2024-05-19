@@ -27,4 +27,12 @@ public class BusinessCardService {
             return null;
         }
     }
+
+    public void append(BusinessCard businessCard) {
+        businessCardList.add(businessCard);
+    }
+
+    public void deleteById(int id) {
+        businessCardList.remove(id);
+    }
 }
